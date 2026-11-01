@@ -1,4 +1,4 @@
-# Koba Audio Module ? Application
+# Koba Audio Module — Application
 
 Device-side runtime and management application for Koba Audio Module devices.
 
@@ -16,8 +16,35 @@ backend for every minor hardware variant.
 
 ## Boundaries
 
-- Firmware/Linux/boards/backup/flashing live in KobaProduction/audio-module-hardware.
+- Firmware/Linux/boards/backup/flashing and the internal image Builder live in
+  [KobaProduction/audio-module-hardware](https://github.com/KobaProduction/audio-module-hardware).
 - Shared conversations, assistants and their orchestration live in external services.
+
+## Start here: repository ownership and HAL contract
+
+This repository already exists; it is the **second and only other current
+Audio Module product repository**. Hardware keeps all logical Kernel,
+U-Boot, Firmware, Builder and Tools components internally. No separate
+Builder or Firmware GitHub repository is planned. Before designing an
+Application runtime, follow the [Hardware-owned two-repository map and
+handoff](https://github.com/KobaProduction/audio-module-hardware/blob/main/docs/REPOSITORIES.md).
+OpenIPC and OpenWrt are architecture/development inspirations only; we are
+not replacing Alpine with OpenWrt.
+
+The current [Hardware HAL v1 contract](https://github.com/KobaProduction/audio-module-hardware/blob/main/docs/HAL_CONTRACT.md)
+uses a **build-time** descriptor at /usr/share/audio-module/capabilities-v1.json.
+Its origin is builder-declared and runtime_verified is false. It is **not** an
+implemented HAL daemon, IPC, device probe or guarantee of operating hardware.
+The Application will own runtime discovery, audio/control logic and UI; native
+Linux HAL provider work is tracked in [Hardware #4](https://github.com/KobaProduction/audio-module-hardware/issues/4).
+Do not bind code to assumed ALSA/input indices, invent the HAL transport,
+activate SPDIF from an unverified profile or perform raw NAND writes.
+
+An Application release may eventually be selected by Hardware's **existing
+Builder** after agreeing on package, version and compatibility contracts.
+No such bundling exists now. Proposed daemon/audio/API framework decisions
+belong to [Application Issue #1](https://github.com/KobaProduction/audio-module-application/issues/1)
+not to an implicit choice by a new agent.
 
 ## Status
 
