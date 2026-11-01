@@ -12,6 +12,7 @@ device-dumps/
 
 # Local generated state
 .venv/
+.work/
 __pycache__/
 .cache/
 build/
