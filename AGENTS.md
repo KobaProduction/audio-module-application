@@ -1,6 +1,7 @@
 # AGENTS.md
 
 Read README.md completely before working in this repository.
+For Application stack and transport direction, read docs/FOUNDATION.md before planning implementation.
 For cross-repository ownership and Hardware/HAL integration, use the authoritative
 Hardware docs/REPOSITORIES.md and docs/HAL_CONTRACT.md (linked in README).
 For current Application architecture decisions and blockers, inspect GitHub Issue #1.
@@ -13,5 +14,7 @@ Keep runtime audio/UI/control logic here; physical board profiles and Builder
 remain in audio-module-hardware. A HAL JSON declaration is not a live API.
 
 Use relevant task skills from https://github.com/ArthurKoba/ai-agent-workflow.
-Architecture and technologies are unapproved. Do not preemptively select
-frameworks, interfaces or directory layouts.
+The initial Qt 6/C++, Vue 3/TypeScript/Vite/Pinia, WebSocket + Protobuf and SQLite
+direction is selected in docs/FOUNDATION.md. Daemon topology, concrete RPC/IPC
+protocol, audio engine and further module design remain open in Issue #1.
+Do not implement or silently lock undecided details ahead of user input.
