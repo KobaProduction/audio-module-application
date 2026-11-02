@@ -1,0 +1,27 @@
+---
+title: "Аудиосигнал — цветомузыка и AEC"
+---
+flowchart LR
+  MUSIC["Музыка / TTS / уведомления"] --> DECODE["Декодирование"]
+  DECODE --> TAP["SignalTap pre-volume"]
+  TAP --> GAIN["Volume / mute / route"]
+  GAIN --> DSP["DSP / буферы"]
+  DSP --> OUT["Speaker / AUX / SPDIF / BT"]
+  TAP --> FFT["RFFT / огибающая"]
+  FFT --> BEAT["Ритм / частоты / признаки"]
+  BEAT --> EFFECT["Визуальный эффект"]
+  EFFECT --> LIGHT["LED / экран / внешняя система"]
+  DSP --> REF["AEC reference + timing"]
+  OUT -.-> ROOM["Реальный звук в комнате"]
+  ROOM -.-> MIC["Микрофон"]
+  MIC --> CLEAN["Очистка голоса / AEC"]
+  REF -.-> CLEAN
+  CLEAN --> TRIGGER["Wake / Stop / STT"]
+  classDef source fill:#dae8fc,stroke:#6c8ebf
+  classDef sound fill:#d5e8d4,stroke:#82b366
+  classDef light fill:#e1d5e7,stroke:#9673a6
+  classDef echo fill:#fff2cc,stroke:#d6b656
+  class MUSIC,OUT,ROOM,MIC source
+  class DECODE,TAP,GAIN,DSP,CLEAN,TRIGGER sound
+  class FFT,BEAT,EFFECT,LIGHT light
+  class REF echo

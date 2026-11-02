@@ -46,29 +46,22 @@ No such bundling exists now. Proposed daemon/audio/API framework decisions
 belong to [Application Issue #1](https://github.com/KobaProduction/audio-module-application/issues/1)
 not to an implicit choice by a new agent.
 
-## Product capability map
+## Unified technical requirements and product model
 
-[docs/PRODUCT_SCOPE.md](docs/PRODUCT_SCOPE.md) captures the owner-described
-smart-speaker domains and user journeys: continuous voice capture and wake/
-stop detection, playback-aware noise/echo mitigation, modular audio outputs,
-shared physical/voice/web/external control, optional STT/LLM/TTS providers,
-media discovery, onboarding/networking, Home Assistant, telemetry and
-color music. **This is product discovery, not an approved MVP feature list,
-DSP algorithm, process topology or implemented service.** Decisions and
-priorities remain in Application Issue #1.
+**[docs/TECHNICAL_SPEC.md](docs/TECHNICAL_SPEC.md)** is the single working
+technical assignment for Application: purpose, domains, user journeys,
+MVP scope, audio/voice/control/light interactions, ER conceptual model,
+candidate SQLite entities, cross-platform Windows → Linux/AArch64 direction
+and decisions still requiring owner approval. Its diagrams were created
+with Draw.io and their editable sources are under [docs/diagrams](docs/diagrams/).
 
-## Initial platform direction
-
-The first agreed platform/transport/storage direction is recorded in
-[docs/FOUNDATION.md](docs/FOUNDATION.md): C++ / Qt 6 backend and native
-service, Vue 3 / TypeScript / Vite / Pinia frontend with considered Shadow DOM
-components, binary WebSocket RPC / Protobuf messages, and local SQLite with
-versioned schema. Windows is the desktop development target, Linux/AArch64 the
-first device target; the speaker does not require Docker.
-
-**Status:** specification only, not an implemented Qt server, SPA, RPC or DB.
-Exact daemon topology, full RPC protocol, audio engine, domain modules and
-runtime hardware integration remain open in Application Issue #1.
+The agreed technology direction is C++/Qt 6, Vue 3/TypeScript/Vite/Pinia,
+binary WebSocket RPC/Protobuf and SQLite. Audio algorithms, exact RPC,
+daemon split and SQL tables are **not** yet decided. This is a specification,
+not a running service, firmware integration or accepted physical hardware.
+Previous FOUNDATION.md and PRODUCT_SCOPE.md paths remain navigational
+pointers to this single specification. Open decisions belong in
+[Application Issue #1](https://github.com/KobaProduction/audio-module-application/issues/1).
 
 Workflow: https://github.com/ArthurKoba/ai-agent-workflow
 
