@@ -1,0 +1,30 @@
+---
+title: "Audio Module — контуры системы (концепция)"
+---
+flowchart LR
+  MIC["Микрофон"] --> CAP["Захват аудио"]
+  CAP --> DSP["Обработка голоса"]
+  DSP --> TRG["Триггеры и сессия"]
+  TRG --> VOICE["STT / Ассистент / TTS"]
+  VOICE --> CMD["Общие команды"]
+  PHYS["Кнопки / энкодеры"] --> CMD
+  WEB["Vue SPA / внешние клиенты"] <-->|"WS RPC"| CMD
+  HA["Home Assistant"] <-->|"Адаптер"| CMD
+  CMD --> ROUTE["Воспроизведение / маршруты"]
+  MEDIA["Музыка / уведомления"] --> PRE["Точка pre-volume"]
+  PRE --> ROUTE
+  ROUTE --> SINK["Speaker / AUX / SPDIF / BT"]
+  ROUTE -.->|"Опора AEC + задержка"| DSP
+  PRE --> LIGHT["Цветомузыка / анализ"]
+  LIGHT --> LED["LED / эффекты"]
+  CMD <--> STATE["Настройки / SQLite"]
+  CMD -.-> TEL["OTel / метрики"]
+  VOICE <-->|"Провайдеры"| CLOUD["STT / LLM / TTS внешние"]
+  classDef io fill:#dae8fc,stroke:#6c8ebf
+  classDef process fill:#d5e8d4,stroke:#82b366
+  classDef control fill:#fff2cc,stroke:#d6b656
+  classDef external fill:#ffe6cc,stroke:#d79b00
+  class MIC,PHYS,WEB,SINK,LED io
+  class CAP,DSP,TRG,VOICE,ROUTE,PRE,LIGHT process
+  class CMD,STATE,TEL control
+  class MEDIA,HA,CLOUD external
