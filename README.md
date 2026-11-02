@@ -46,17 +46,26 @@ No such bundling exists now. Proposed daemon/audio/API framework decisions
 belong to [Application Issue #1](https://github.com/KobaProduction/audio-module-application/issues/1)
 not to an implicit choice by a new agent.
 
-## Status
+## Initial platform direction
 
-Initial repository only. Language/framework, audio pipeline engine, API contracts,
-licensing and detailed architecture remain open for design.
+The first agreed platform/transport/storage direction is recorded in
+[docs/FOUNDATION.md](docs/FOUNDATION.md): C++ / Qt 6 backend and native
+service, Vue 3 / TypeScript / Vite / Pinia frontend with considered Shadow DOM
+components, binary WebSocket RPC / Protobuf messages, and local SQLite with
+versioned schema. Windows is the desktop development target, Linux/AArch64 the
+first device target; the speaker does not require Docker.
+
+**Status:** specification only, not an implemented Qt server, SPA, RPC or DB.
+Exact daemon topology, full RPC protocol, audio engine, domain modules and
+runtime hardware integration remain open in Application Issue #1.
 
 Workflow: https://github.com/ArthurKoba/ai-agent-workflow
 
 ## Development status
 
-Only project scope and repository-level safety checks are initialized.
-No application code, board support sources or runtime toolchain have been adopted.
+Project scope, initial stack/interface direction and repository safety checks
+are documented. No application code, board support sources or compiled
+runtime toolchain have been adopted yet.
 The current pre-push and CI verification checks documentation completeness, whitespace,
 and accidental secrets; it **rejects source files** until the relevant build, lint and
 test toolchain is approved and added to the same gate.
