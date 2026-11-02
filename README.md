@@ -46,6 +46,17 @@ No such bundling exists now. Proposed daemon/audio/API framework decisions
 belong to [Application Issue #1](https://github.com/KobaProduction/audio-module-application/issues/1)
 not to an implicit choice by a new agent.
 
+## Product capability map
+
+[docs/PRODUCT_SCOPE.md](docs/PRODUCT_SCOPE.md) captures the owner-described
+smart-speaker domains and user journeys: continuous voice capture and wake/
+stop detection, playback-aware noise/echo mitigation, modular audio outputs,
+shared physical/voice/web/external control, optional STT/LLM/TTS providers,
+media discovery, onboarding/networking, Home Assistant, telemetry and
+color music. **This is product discovery, not an approved MVP feature list,
+DSP algorithm, process topology or implemented service.** Decisions and
+priorities remain in Application Issue #1.
+
 ## Initial platform direction
 
 The first agreed platform/transport/storage direction is recorded in

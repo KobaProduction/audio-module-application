@@ -2,6 +2,7 @@
 
 Read README.md completely before working in this repository.
 For Application stack and transport direction, read docs/FOUNDATION.md before planning implementation.
+For product capabilities, user journeys and MVP discovery, read docs/PRODUCT_SCOPE.md.
 For cross-repository ownership and Hardware/HAL integration, use the authoritative
 Hardware docs/REPOSITORIES.md and docs/HAL_CONTRACT.md (linked in README).
 For current Application architecture decisions and blockers, inspect GitHub Issue #1.
