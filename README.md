@@ -50,8 +50,8 @@ not to an implicit choice by a new agent.
 
 **[docs/TECHNICAL_SPEC.md](docs/TECHNICAL_SPEC.md)** is the single working
 technical assignment for Application: purpose, domains, user journeys,
-MVP scope, audio/voice/control/light interactions, ER conceptual model,
-candidate SQLite entities, cross-platform Windows → Linux/AArch64 direction
+MVP scope, audio/voice/control/light interactions, conceptual maps of
+business entities and relationships, Windows → Linux/AArch64 direction
 and decisions still requiring owner approval. Its diagrams were created
 with Draw.io and their editable sources are under [docs/diagrams](docs/diagrams/).
 
